@@ -1,0 +1,83 @@
+name: Build Apps
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_android:
+        description: 'Build Android'
+        type: boolean
+        default: false
+      build_ios:
+        description: 'Build iOS'
+        type: boolean
+        default: false
+
+jobs:
+  build-android:
+    name: Build Android
+    runs-on: ubuntu-latest
+    if: ${{ inputs.build_android }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bun install --frozen-lockfile
+          bundle install
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build Android with Fastlane
+        run: bundle exec fastlane android build
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release
+          path: android/app/build/outputs/apk/release/app-release.apk
+
+  build-ios:
+    name: Build iOS
+    runs-on: macos-latest
+    if: ${{ inputs.build_ios }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          bun install --frozen-lockfile
+          bundle install
+
+      - name: Install CocoaPods dependencies
+        run: |
+          cd ios
+          pod install
+
+      - name: Build iOS with Fastlane
+        run: bundle exec fastlane ios build
