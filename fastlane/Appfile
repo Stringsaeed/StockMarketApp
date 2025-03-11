@@ -1,0 +1,6 @@
+app_identifier("com.stringsaeed.thndr-task") # The bundle identifier of your app
+apple_id("mohameddiabaya@gmail.com") # Your Apple Developer Portal username
+team_id("V3HN8HXZYK") # Your Apple Developer Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
