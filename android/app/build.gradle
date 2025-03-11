@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.stockmarketapp"
+    namespace "com.stringsaeed.thndr_task"
     defaultConfig {
-        applicationId "com.stockmarketapp"
+        applicationId "com.stringsaeed.thndr-task"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
