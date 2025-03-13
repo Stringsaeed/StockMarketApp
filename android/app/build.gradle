@@ -79,7 +79,7 @@ android {
 
     namespace "com.stringsaeed.thndr_task"
     defaultConfig {
-        applicationId "com.stringsaeed.thndr-task"
+        applicationId "com.stringsaeed.thndr_task"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
