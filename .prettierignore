@@ -3,3 +3,5 @@ node_modules/
 ios/
 android/
 .bundle/
+src/assets/lottie/*.json
+src/assets/logos/
