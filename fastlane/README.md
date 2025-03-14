@@ -1,5 +1,4 @@
-fastlane documentation
-----
+## fastlane documentation
 
 # Installation
 
@@ -31,8 +30,7 @@ Build iOS app
 
 Publish a new iOS version to TestFlight
 
-----
-
+---
 
 ## Android
 
@@ -44,7 +42,7 @@ Publish a new iOS version to TestFlight
 
 Build Android app
 
-----
+---
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 

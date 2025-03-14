@@ -17,10 +17,9 @@ A beautifully designed stock market application built with React Native that all
 
 ### Android:
 
-|                    Splash Screen                     |                     Explore Stocks                     |                    Search Stocks                     |
-| :--------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------------: |
+|                    Splash Screen                    |                    Explore Stocks                     |                    Search Stocks                    |
+| :-------------------------------------------------: | :---------------------------------------------------: | :-------------------------------------------------: |
 | ![Splash Screen](.github/assets/android/Splash.png) | ![Explore Stocks](.github/assets/android/Explore.png) | ![Search Stocks](.github/assets/android/Search.png) |
-
 
 ## 📦 Installation
 
@@ -195,3 +194,54 @@ This Stock Market App was developed as an interview task demonstration.
 - [Polygon.io](https://polygon.io/) for the stock market data API
 - [React Native](https://reactnative.dev/) community for the amazing framework
 - All the open-source libraries that made this project possible
+
+## 🚀 Release Process
+
+The app uses an automated release process to streamline version management and deployment:
+
+### Automated Release Features
+
+1. **Version Management**
+
+   - Automatically updates version numbers across:
+     - `package.json`
+     - iOS project (version and build number)
+     - Android build.gradle (versionCode and versionName)
+
+2. **GitHub Releases**
+   - Creates GitHub releases with auto-generated release notes from commit history
+   - Automatically builds and attaches Android APK to the release
+
+### How to Create a Release
+
+To create a new release, run one of the following commands:
+
+```bash
+# Patch release (1.0.0 -> 1.0.1)
+bun release:patch
+
+# Minor release (1.0.0 -> 1.1.0)
+bun release:minor
+
+# Major release (1.0.0 -> 2.0.0)
+bun release:major
+
+# Custom version
+bun release -- 1.2.3
+```
+
+The release process will:
+
+1. Lint the code
+2. Bump version numbers in all necessary files
+3. Create a git tag
+4. Push changes and tag to GitHub
+5. Create a GitHub release with auto-generated release notes
+6. Trigger a GitHub Actions workflow to build and attach the Android APK
+
+### CI/CD Pipeline
+
+When a new GitHub release is created, a GitHub Actions workflow automatically:
+
+1. Builds the Android APK
+2. Uploads the APK as an asset to the corresponding GitHub release

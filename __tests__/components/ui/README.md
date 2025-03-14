@@ -122,13 +122,13 @@ When adding tests for new UI components, follow these steps:
 To run the tests, use the following command:
 
 ```bash
-npm test
+bun run test
 ```
 
 To run tests for a specific component:
 
 ```bash
-npm test -- Button
+bun run test -- Button
 ```
 
 ## Troubleshooting
