@@ -7,7 +7,11 @@
 
 A beautifully designed stock market application built with React Native that allows users to explore, search, and view real-time stock data powered by the Polygon.io API.
 
-![App Screenshots](https://via.placeholder.com/800x400?text=Stock+Market+App+Screenshots)
+## 📱 App Preview
+
+| Splash Screen | Explore Stocks | Search Stocks |
+|:-------------:|:--------------:|:-------------:|
+| ![Splash Screen](.github/assets/Splash.jpeg) | ![Explore Stocks](.github/assets/Explore.jpeg) | ![Search Stocks](.github/assets/Search.jpeg) |
 
 ## ✨ Features
 
@@ -55,7 +59,7 @@ A beautifully designed stock market application built with React Native that all
 1. Clone the repository
 
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:stringsaeed/StockMarketApp.git
    cd StockMarketApp
    ```
 
