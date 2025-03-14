@@ -19,9 +19,16 @@ const StockItemComponent = ({onPress, stock, index}: StockItemProps) => {
     <TouchableOpacity
       style={[styles.container, index % 2 === 0 ? styles.evenContainer : {}]}
       onPress={onPress}
-      activeOpacity={0.7}>
-      <View style={[styles.avatar, {backgroundColor: getRandomBgColor()}]}>
-        <Text numberOfLines={1} adjustsFontSizeToFit style={styles.avatarText}>
+      activeOpacity={0.7}
+      testID="stock-item">
+      <View
+        style={[styles.avatar, {backgroundColor: getRandomBgColor()}]}
+        testID="stock-avatar">
+        <Text
+          accessible={false}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          style={styles.avatarText}>
           {stock.ticker}
         </Text>
       </View>

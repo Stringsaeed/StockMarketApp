@@ -38,10 +38,7 @@ const ExploreScreen = () => {
       <LoadingIndicator message="Loading stocks..." />
     ))
     .with({isFetchNextPageError: false, error: P.nonNullable}, () => (
-      <ErrorMessage
-        message={`Failed to load stocks: ${error}`}
-        onRetry={() => refetch()}
-      />
+      <ErrorMessage onRetry={() => refetch()} />
     ))
     .with({data: P.nonNullable, isLoading: false}, ({data: _data}) => (
       <StocksList

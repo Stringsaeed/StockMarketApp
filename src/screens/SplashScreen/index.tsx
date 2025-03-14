@@ -19,9 +19,9 @@ const SplashScreen = () => {
   }, [navigation]);
 
   return (
-    <View style={styles.container}>
+    <View testID="splash-screen" style={styles.container}>
       <StatusBar hidden />
-      <NasdaqIcon width={250} />
+      <NasdaqIcon width={250} testID="nasdaq-icon" />
       <Text style={styles.title}>Stocks</Text>
       <Text style={styles.developer}>
         Developed by Muhammed Saeed{'\n'}

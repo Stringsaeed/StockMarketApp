@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 interface ErrorMessageProps {
-  message: string;
   onRetry?: () => void;
 }
 
@@ -15,9 +14,13 @@ const ErrorMessage = ({onRetry}: ErrorMessageProps) => {
         autoPlay
         loop
         style={styles.animation}
+        testID="error-animation"
       />
       {onRetry && (
-        <TouchableOpacity style={styles.retryButton} onPress={onRetry}>
+        <TouchableOpacity
+          style={styles.retryButton}
+          onPress={onRetry}
+          testID="retry-button">
           <Text style={styles.retryText}>Try Again</Text>
         </TouchableOpacity>
       )}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component matches snapshot 1`] = `
+<View
+  style={
+    [
+      undefined,
+      {
+        "transform": [
+          {
+            "scale": undefined,
+          },
+        ],
+      },
+    ]
+  }
+>
+  <Text>
+    Test Button
+  </Text>
+</View>
+`;

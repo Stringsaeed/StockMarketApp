@@ -19,8 +19,13 @@ const LoadingIndicator = ({
         autoPlay
         loop
         style={styles[size]}
+        testID="loading-animation"
       />
-      {message ? <Text style={styles.message}>{message}</Text> : null}
+      {message ? (
+        <Text testID="loading-message" style={styles.message}>
+          {message}
+        </Text>
+      ) : null}
     </View>
   );
 };

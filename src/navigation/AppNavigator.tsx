@@ -15,10 +15,12 @@ const Stack = createNativeStackNavigator({
   screens: {
     [RootStackScreens.Explore]: {
       options: {
+        headerTitle: () => (
+          <NasdaqIcon testID="nasdaq-icon" width={90} height={25} />
+        ),
         headerSearchBarOptions: {
           placeholder: 'Search stocks',
         },
-        headerTitle: () => <NasdaqIcon width={90} height={25} />,
         headerTransparent: Platform.OS === 'ios',
         headerTitleAlign: 'center',
         headerBlurEffect: 'dark',

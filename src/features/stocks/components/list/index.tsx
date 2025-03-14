@@ -25,7 +25,7 @@ export const StocksList = ({
       return null;
     }
     if (loadingMoreError) {
-      return <ErrorMessage message={loadingMoreError} onRetry={onEndReached} />;
+      return <ErrorMessage onRetry={onEndReached} />;
     }
     return <LoadingIndicator size="small" message="Loading more stocks..." />;
   }, [hasNextPage, loadingMoreError, onEndReached]);
@@ -41,6 +41,7 @@ export const StocksList = ({
       onEndReachedThreshold={0.2}
       ListFooterComponent={renderFooter}
       numColumns={2}
+      testID="stocks-list"
       contentInsetAdjustmentBehavior="automatic"
     />
   );
