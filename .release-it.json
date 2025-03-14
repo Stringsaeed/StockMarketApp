@@ -16,5 +16,11 @@
   "hooks": {
     "before:init": ["bun lint"],
     "after:bump": ["node scripts/update-version.js ${version}"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
   }
 }
