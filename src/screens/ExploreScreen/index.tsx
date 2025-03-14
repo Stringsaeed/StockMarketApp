@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
+import {StatusBar} from 'react-native';
 import {P, match} from 'ts-pattern';
 
 import ErrorMessage from '@/components/ErrorMessage';
@@ -32,6 +33,13 @@ const ExploreScreen = () => {
       fetchNextPage();
     }
   };
+
+  useLayoutEffect(() => {
+    StatusBar.setBarStyle('light-content');
+    StatusBar.setTranslucent(true);
+    StatusBar.setBackgroundColor('transparent');
+    StatusBar.setHidden(false);
+  }, []);
 
   return match({isFetchNextPageError, isLoading, error, data})
     .with({isLoading: true}, () => (
