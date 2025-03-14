@@ -9,9 +9,23 @@ A beautifully designed stock market application built with React Native that all
 
 ## 📱 App Preview
 
-| Splash Screen | Explore Stocks | Search Stocks |
-|:-------------:|:--------------:|:-------------:|
+### iOS:
+
+|                Splash Screen                 |                 Explore Stocks                 |                Search Stocks                 |
+| :------------------------------------------: | :--------------------------------------------: | :------------------------------------------: |
 | ![Splash Screen](.github/assets/Splash.jpeg) | ![Explore Stocks](.github/assets/Explore.jpeg) | ![Search Stocks](.github/assets/Search.jpeg) |
+
+### Android:
+
+|                    Splash Screen                     |                     Explore Stocks                     |                    Search Stocks                     |
+| :--------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------------: |
+| ![Splash Screen](.github/assets/android/Splash.png) | ![Explore Stocks](.github/assets/android/Explore.png) | ![Search Stocks](.github/assets/android/Search.png) |
+
+
+## 📦 Installation
+
+- TestFlight: [Download](https://testflight.apple.com/join/fYPXAdcQ)
+- APK: [Download](https://github.com/stringsaeed/StockMarketApp/releases/download/v1.0.0/app-release.apk)
 
 ## ✨ Features
 
