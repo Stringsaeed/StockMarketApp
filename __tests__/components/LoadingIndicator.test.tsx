@@ -30,9 +30,7 @@ describe('LoadingIndicator Component', () => {
     // Check if the animation is rendered with small size
     const animation = screen.getByTestId('loading-animation');
     expect(animation).toBeTruthy();
-    expect(animation.props.style).toEqual(
-      expect.objectContaining({height: 50, width: 50}),
-    );
+    expect(animation).toHaveStyle({height: 50, width: 50});
   });
 
   it('renders correctly with large size', () => {
@@ -41,9 +39,7 @@ describe('LoadingIndicator Component', () => {
     // Check if the animation is rendered with large size
     const animation = screen.getByTestId('loading-animation');
     expect(animation).toBeTruthy();
-    expect(animation.props.style).toEqual(
-      expect.objectContaining({height: 100, width: 100}),
-    );
+    expect(animation).toHaveStyle({height: 100, width: 100});
   });
 
   it('does not render message when message is empty', () => {

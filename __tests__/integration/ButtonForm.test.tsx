@@ -156,8 +156,8 @@ describe('Button in Form Integration Tests', () => {
     fireEvent(screen.getByTestId('reset-button'), 'onTouchEnd');
 
     // Check that fields are cleared
-    expect(screen.getByTestId('username-input').props.value).toBe('');
-    expect(screen.getByTestId('password-input').props.value).toBe('');
+    expect(screen.getByTestId('username-input')).toHaveProp('value', '');
+    expect(screen.getByTestId('password-input')).toHaveProp('value', '');
   });
 
   it('navigates back to login form after successful submission', () => {
@@ -178,7 +178,7 @@ describe('Button in Form Integration Tests', () => {
     expect(screen.getByTestId('form-container')).toBeTruthy();
 
     // Check that form is reset
-    expect(screen.getByTestId('username-input').props.value).toBe('');
-    expect(screen.getByTestId('password-input').props.value).toBe('');
+    expect(screen.getByTestId('username-input')).toHaveProp('value', '');
+    expect(screen.getByTestId('password-input')).toHaveProp('value', '');
   });
 });

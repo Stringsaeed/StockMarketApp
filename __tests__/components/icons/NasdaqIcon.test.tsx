@@ -24,7 +24,6 @@ describe('NasdaqIcon', () => {
     const icon = screen.getByTestId('nasdaq-icon');
 
     // Default dimensions from the component
-    expect(icon.props.width).toBe(106);
-    expect(icon.props.height).toBe(30);
+    expect(icon).toHaveStyle({width: 106, height: 30});
   });
 });
