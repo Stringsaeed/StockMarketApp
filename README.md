@@ -1,97 +1,179 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📈 Stock Market App
 
-# Getting Started
+![React Native](https://img.shields.io/badge/React_Native-0.78.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0.4-blue)
+![React Query](https://img.shields.io/badge/React_Query-5.67.2-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A beautifully designed stock market application built with React Native that allows users to explore, search, and view real-time stock data powered by the Polygon.io API.
 
-## Step 1: Start Metro
+![App Screenshots](https://via.placeholder.com/800x400?text=Stock+Market+App+Screenshots)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Features
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Splash Screen**: Elegant onboarding experience with NASDAQ branding
+- **Stock Exploration**: Browse and discover stocks with real-time data
+- **Search Functionality**: Find specific stocks with debounced search
+- **Real-time Data**: Integration with Polygon.io API for market data
+- **Responsive UI**: Beautiful UI components with seamless animations
+- **Bottom Sheet**: Interactive bottom sheet for detailed stock information
+- **Loading States**: Smooth Lottie animations for loading and error states
+- **Comprehensive Testing**: Unit, integration, and component tests
 
-```sh
-# Using npm
-npm start
+## 🛠️ Technology Stack
 
-# OR using Yarn
-yarn start
+- **Framework**: React Native 0.78.0
+- **Language**: TypeScript 5.0.4
+- **State Management**: React Query (TanStack Query)
+- **Navigation**: React Navigation v7
+- **API Integration**: Axios
+- **UI Components**:
+  - React Native Reanimated
+  - React Native Gesture Handler
+  - Bottom Sheet
+  - Flash List (for optimized lists)
+  - Lottie for animations
+- **Testing**: Jest with React Testing Library
+- **Code Quality**:
+  - ESLint with custom configuration
+  - Prettier
+  - Commit linting
+  - Lefthook for Git hooks
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js >= 18
+- Ruby (for CocoaPods)
+- XCode (for iOS development)
+- Android Studio (for Android development)
+- JDK 11 or newer
+
+### Installation
+
+1. Clone the repository
+
+   ```bash
+   git clone <repository-url>
+   cd StockMarketApp
+   ```
+
+2. Install JavaScript dependencies
+
+   ```bash
+   bun install
+   ```
+
+3. Install iOS dependencies
+   ```bash
+   bundle install
+   bundle exec pod install --project-directory=ios
+   ```
+
+## 🏃‍♂️ Running the App
+
+### Start Metro server
+
+```bash
+bun start
 ```
 
-## Step 2: Build and run your app
+### Run on Android
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+bun run android
 ```
 
-### iOS
+### Run on iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+bun run ios
 ```
 
-Then, and every time you update your native dependencies, run:
+## 🧪 Testing
 
-```sh
-bundle exec pod install
+The project includes comprehensive test coverage using Jest and React Testing Library:
+
+```bash
+# Run all tests
+bun run test
+
+# Watch mode
+bun run test:watch
+
+# Generate coverage report
+bun run test:coverage
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## 📁 Project Structure
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```
+src/
+├── assets/           # Static assets (fonts, images, animations)
+├── components/       # Reusable UI components
+├── features/         # Feature-based modules
+│   └── stocks/       # Stock-related components and logic
+├── hooks/            # Custom React hooks
+├── navigation/       # Navigation configuration
+├── screens/          # App screens
+├── services/         # API services
+└── types/            # TypeScript type definitions
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 🧩 Architecture
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+This application follows a feature-based architecture with clean separation of concerns:
 
-## Step 3: Modify your app
+- **Presentational Components**: UI components without business logic
+- **Container Components**: Components that manage data and state
+- **Custom Hooks**: Encapsulate and reuse stateful logic
+- **API Services**: Handle external API communication
+- **Types**: Strong TypeScript typing throughout the application
 
-Now that you have successfully run the app, let's make changes!
+## 📱 Features Implementation
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Stock Exploration
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Browse through a list of stocks with real-time data from Polygon.io API. The implementation uses Flash List for optimal performance with large datasets.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Search Functionality
 
-## Congratulations! :tada:
+Search stock symbols and names with debounced input to minimize API calls while typing.
 
-You've successfully run and modified your React Native App. :partying_face:
+### Detailed Stock Information
 
-### Now what?
+View detailed information about a stock using an interactive bottom sheet.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 🔗 API Integration
 
-# Troubleshooting
+The app uses the Polygon.io API for stock market data. The API integration is handled through the `polygon.ts` service.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 📘 Development Guidelines
 
-# Learn More
+- Follow the existing code style and organization
+- Write tests for new features
+- Use the existing component structure
+- Follow commit message conventions (conventional commits)
 
-To learn more about React Native, take a look at the following resources:
+## 🤝 Contributing
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Author
+
+This Stock Market App was developed as an interview task demonstration.
+
+## 🙏 Acknowledgments
+
+- [Polygon.io](https://polygon.io/) for the stock market data API
+- [React Native](https://reactnative.dev/) community for the amazing framework
+- All the open-source libraries that made this project possible
