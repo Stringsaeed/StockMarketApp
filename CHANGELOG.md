@@ -1,5 +1,7 @@
 # Changelog
 
+# [1.0.0](https://github.com/Stringsaeed/StockMarketApp/compare/v0.1.0...v1.0.0) (2025-03-15)
+
 # 0.1.0 (2025-03-15)
 
 
