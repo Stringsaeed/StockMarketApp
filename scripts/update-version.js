@@ -61,7 +61,7 @@ function updateNativeVersion() {
       )} && bundle exec fastlane update_versions version:${newVersion}`,
       {stdio: 'inherit'},
     );
-    console.log('✅ Updated Android version');
+    console.log('✅ Updated Native version');
   } catch (error) {
     console.error('❌ Failed to update Android version:', error.message);
   }
@@ -72,3 +72,4 @@ updatePackageJson();
 updateNativeVersion();
 
 console.log('Version update completed!');
+process.exit(0);
