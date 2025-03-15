@@ -51,21 +51,14 @@ function updatePackageJson() {
   }
 }
 
-// Update Android version using Fastlane
-function updateAndroidVersion() {
+// Update Native version using Fastlane
+function updateNativeVersion() {
   try {
     execSync(
       `cd ${path.join(
         __dirname,
         '..',
-      )} && bundle exec fastlane run android increment_version_code version_code:${buildNumber} gradle_file_path:android/app/build.gradle`,
-      {stdio: 'inherit'},
-    );
-    execSync(
-      `cd ${path.join(
-        __dirname,
-        '..',
-      )} && bundle exec fastlane run android increment_version_name version_name:${newVersion} gradle_file_path:android/app/build.gradle`,
+      )} && bundle exec fastlane update_versions version:${newVersion}`,
       {stdio: 'inherit'},
     );
     console.log('✅ Updated Android version');
@@ -74,32 +67,8 @@ function updateAndroidVersion() {
   }
 }
 
-// Update iOS version using Fastlane
-function updateIOSVersion() {
-  try {
-    execSync(
-      `cd ${path.join(
-        __dirname,
-        '..',
-      )} && bundle exec fastlane run ios increment_version_number version_number:${newVersion} xcodeproj:ios/StockMarketApp.xcodeproj`,
-      {stdio: 'inherit'},
-    );
-    execSync(
-      `cd ${path.join(
-        __dirname,
-        '..',
-      )} && bundle exec fastlane run ios increment_build_number build_number:${buildNumber} xcodeproj:ios/StockMarketApp.xcodeproj`,
-      {stdio: 'inherit'},
-    );
-    console.log('✅ Updated iOS version');
-  } catch (error) {
-    console.error('❌ Failed to update iOS version:', error.message);
-  }
-}
-
 // Execute updates
 updatePackageJson();
-updateAndroidVersion();
-updateIOSVersion();
+updateNativeVersion();
 
 console.log('Version update completed!');

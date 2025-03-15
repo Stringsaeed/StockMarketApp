@@ -24,6 +24,23 @@ before_all do |lane|
   end
 end
 
+private_lane :setup_store_connect do
+  if ENV["CI"]
+    setup_ci
+    app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
+    )
+  else
+    app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
+      key_filepath: "./secrets/App Store Connect Auth Key.p8",
+    )
+  end
+end
+
 platform :ios do
   desc "Build iOS app"
   lane :build do
@@ -35,20 +52,7 @@ platform :ios do
 
   desc "Publish a new iOS version to TestFlight"
   lane :release_test_flight do
-    if ENV["CI"]
-      setup_ci
-      app_store_connect_api_key(
-        key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
-        issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
-        key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
-      )
-    else
-      app_store_connect_api_key(
-        key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
-        issuer_id: ENV["APP_STORE_CONNECT_ISSUER_ID"],
-        key_filepath: "./secrets/App Store Connect Auth Key.p8",
-      )
-    end
+    setup_store_connect
 
     match(type: "appstore")
 
@@ -77,4 +81,49 @@ platform :android do
       project_dir: "android/"
     )
   end
+end
+
+
+# lane with option version
+desc "Update versions"
+lane :update_versions do |options|
+  setup_store_connect
+
+  the_version = options[:version]
+
+  # update build number for ios
+  latest_release = latest_testflight_build_number(version: the_version)
+
+  puts "latest_release: #{latest_release}"
+  
+  increment_build_number({
+    xcodeproj: "ios/StockMarketApp.xcodeproj",
+    build_number: latest_release + 1
+  })
+  
+
+  # update version code for android
+  latest_android_version_code = android_get_version_code({
+    gradle_file: "android/app/build.gradle",
+  })
+
+  puts "latest_android_version_code: #{latest_android_version_code}"
+
+  android_set_version_code({
+    gradle_file: "android/app/build.gradle",
+    version_code: latest_android_version_code.to_i + 1
+  })
+
+  # update version name for ios
+  increment_version_number({
+    xcodeproj: "ios/StockMarketApp.xcodeproj",
+    version_number: the_version
+  })
+  
+  # update version name for android
+  android_set_version_name({
+    gradle_file: "android/app/build.gradle",
+    version_name: the_version
+  })
+
 end

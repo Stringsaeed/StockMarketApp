@@ -1,4 +1,5 @@
-## fastlane documentation
+fastlane documentation
+----
 
 # Installation
 
@@ -11,6 +12,17 @@ xcode-select --install
 For _fastlane_ installation instructions, see [Installing _fastlane_](https://docs.fastlane.tools/#installing-fastlane)
 
 # Available Actions
+
+### update_versions
+
+```sh
+[bundle exec] fastlane update_versions
+```
+
+Update versions
+
+----
+
 
 ## iOS
 
@@ -30,7 +42,8 @@ Build iOS app
 
 Publish a new iOS version to TestFlight
 
----
+----
+
 
 ## Android
 
@@ -42,7 +55,7 @@ Publish a new iOS version to TestFlight
 
 Build Android app
 
----
+----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 
