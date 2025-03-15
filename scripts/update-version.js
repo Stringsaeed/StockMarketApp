@@ -58,14 +58,14 @@ function updateAndroidVersion() {
       `cd ${path.join(
         __dirname,
         '..',
-      )} && bundle exec fastlane run increment_version_code version_code:${buildNumber} gradle_file_path:android/app/build.gradle`,
+      )} && bundle exec fastlane run android increment_version_code version_code:${buildNumber} gradle_file_path:android/app/build.gradle`,
       {stdio: 'inherit'},
     );
     execSync(
       `cd ${path.join(
         __dirname,
         '..',
-      )} && bundle exec fastlane run increment_version_name version_name:${newVersion} gradle_file_path:android/app/build.gradle`,
+      )} && bundle exec fastlane run android increment_version_name version_name:${newVersion} gradle_file_path:android/app/build.gradle`,
       {stdio: 'inherit'},
     );
     console.log('✅ Updated Android version');
@@ -81,14 +81,14 @@ function updateIOSVersion() {
       `cd ${path.join(
         __dirname,
         '..',
-      )} && bundle exec fastlane run increment_version_number version_number:${newVersion} xcodeproj:ios/StockMarketApp.xcodeproj`,
+      )} && bundle exec fastlane run ios increment_version_number version_number:${newVersion} xcodeproj:ios/StockMarketApp.xcodeproj`,
       {stdio: 'inherit'},
     );
     execSync(
       `cd ${path.join(
         __dirname,
         '..',
-      )} && bundle exec fastlane run increment_build_number build_number:${buildNumber} xcodeproj:ios/StockMarketApp.xcodeproj`,
+      )} && bundle exec fastlane run ios increment_build_number build_number:${buildNumber} xcodeproj:ios/StockMarketApp.xcodeproj`,
       {stdio: 'inherit'},
     );
     console.log('✅ Updated iOS version');
